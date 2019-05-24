@@ -1,14 +1,51 @@
 import React from 'react'
+import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
-const Text = () => {
-  return (
-    <div>
-      <h1>Lorem Ipsum</h1>
-      <h3>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h3>
-      <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio lacus, euismod id iaculis sed, varius ac neque. Pellentesque iaculis massa non ligula pellentesque, ac dignissim justo dapibus. Pellentesque sagittis scelerisque ligula et tristique. Vivamus ut tellus ultricies, placerat neque dictum, imperdiet eros. Vestibulum viverra nec nibh eu mollis. Integer aliquam velit at enim luctus, in venenatis ipsum placerat. Donec aliquet, erat laoreet lobortis placerat, sapien ante mattis mauris, eu euismod odio dui non sapien.</p>
-    </div>
-  )
+const Text = (props) => {
+  const backText = () => {
+    props.history.goBack()
+  }
+
+const{
+  title, 
+  subtitle,
+  description
+} = props.text
+
+
+const papaerStyle = {
+  marginTop: '30px', 
+  padding: '40px', 
+  width: '600px', 
+  marginLeft: 'auto',  
+  marginRight: 'auto'
 }
+
+const textStyle = {
+  marginBottom: '30px'
+}
+
+  function PaperSheet(props) {
+    const { classes } = props;
+  }
+  
+  PaperSheet.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+
+    return (
+      <div>
+        <Paper style={papaerStyle}>
+        <Typography style={textStyle} variant='h3'>{title || 'Title'}</Typography>
+        <Typography style={textStyle} variant='h5'>"{subtitle || 'Subtitle'}"</Typography>
+        <Typography style={textStyle} variant='h6'>"{description || 'description'}"</Typography>
+      </Paper>
+        <Button variant = "contained" onClick = {backText}>Back</Button>
+      </div>
+    )
+  }
 
 export default Text
